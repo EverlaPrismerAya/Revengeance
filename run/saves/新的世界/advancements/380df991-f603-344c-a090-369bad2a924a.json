@@ -1,139 +1,145 @@
 {
   "minecraft:recipes/decorations/crafting_table": {
     "criteria": {
-      "unlock_right_away": "2025-06-08 19:08:50 +0800"
+      "unlock_right_away": "2025-08-02 12:50:09 +0800"
     },
     "done": true
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
-      "minecraft:birch_forest": "2025-06-08 19:09:01 +0800"
+      "minecraft:plains": "2025-08-02 12:50:10 +0800"
     },
     "done": false
   },
-  "minecraft:recipes/building_blocks/birch_planks": {
+  "minecraft:recipes/building_blocks/stone_bricks": {
     "criteria": {
-      "has_logs": "2025-06-08 19:09:22 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/misc/charcoal": {
+  "minecraft:recipes/building_blocks/stone_brick_slab_from_stone_stonecutting": {
     "criteria": {
-      "has_log": "2025-06-08 19:09:22 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/birch_wood": {
+  "minecraft:recipes/building_blocks/stone_brick_stairs_from_stone_stonecutting": {
     "criteria": {
-      "has_log": "2025-06-08 19:09:22 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/redstone/lever": {
+  "minecraft:recipes/building_blocks/stone_slab_from_stone_stonecutting": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/combat/stone_sword": {
+  "minecraft:recipes/building_blocks/stone_bricks_from_stone_stonecutting": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/decorations/cobblestone_wall": {
+  "minecraft:recipes/building_blocks/stone_slab": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/tools/stone_pickaxe": {
+  "minecraft:recipes/building_blocks/chiseled_stone_bricks_stone_from_stonecutting": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/tools/stone_axe": {
+  "minecraft:recipes/building_blocks/stone_stairs_from_stone_stonecutting": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:story/mine_stone": {
+  "minecraft:recipes/redstone/stone_button": {
     "criteria": {
-      "get_stone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/decorations/furnace": {
+  "minecraft:recipes/decorations/stonecutter": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/cobblestone_slab": {
+  "minecraft:recipes/redstone/stone_pressure_plate": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/cobblestone_slab_from_cobblestone_stonecutting": {
+  "minecraft:recipes/building_blocks/smooth_stone": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/stone": {
+  "minecraft:recipes/decorations/stone_brick_walls_from_stone_stonecutting": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/decorations/cobblestone_wall_from_cobblestone_stonecutting": {
+  "minecraft:recipes/building_blocks/stone_stairs": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_stone": "2025-08-31 19:55:09 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/cobblestone_stairs_from_cobblestone_stonecutting": {
+  "minecraft:recipes/decorations/soul_campfire": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_soul_sand": "2025-08-31 19:55:41 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/building_blocks/cobblestone_stairs": {
+  "minecraft:recipes/decorations/soul_torch": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_soul_sand": "2025-08-31 19:55:41 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/tools/stone_hoe": {
+  "minecraft:nether/get_wither_skull": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "wither_skull": "2025-08-31 19:55:50 +0800"
     },
     "done": true
   },
-  "minecraft:recipes/tools/stone_shovel": {
+  "minecraft:recipes/misc/skull_banner_pattern": {
     "criteria": {
-      "has_cobblestone": "2025-06-08 19:27:58 +0800"
+      "has_wither_skeleton_skull": "2025-08-31 19:55:50 +0800"
     },
     "done": true
   },
-  "minecraft:adventure/root": {
+  "minecraft:nether/summon_wither": {
     "criteria": {
-      "killed_something": "2025-06-08 20:22:51 +0800"
+      "summoned": "2025-08-31 19:56:31 +0800"
     },
     "done": true
   },
-  "minecraft:adventure/kill_all_mobs": {
+  "confluence:recipes/confluence/stone_pressure_plate": {
     "criteria": {
-      "minecraft:wither": "2025-06-08 20:22:51 +0800"
+      "has_stone": "2025-09-01 12:50:01 +0800"
     },
-    "done": false
+    "done": true
   },
-  "minecraft:adventure/kill_a_mob": {
+  "confluence:achievements/new_world": {
     "criteria": {
-      "minecraft:wither": "2025-06-08 20:22:51 +0800"
+      "requirement": "2025-09-01 12:50:02 +0800"
+    },
+    "done": true
+  },
+  "apotheosis:progression/root": {
+    "criteria": {
+      "tick": "2025-09-01 12:55:53 +0800"
     },
     "done": true
   },

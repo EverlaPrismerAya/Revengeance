@@ -15,3 +15,25 @@
 /damage Dev 4
 /attribute Dev revengeance:adrenaline_level base set 9999
 /damage Dev 0.1
+/effect give Dev revengeance:rage infinite
+/attribute Dev minecraft:generic.attack_damage base
+/attribute Dev minecraft:generic.attack_damage base get
+/effect give Dev revengeance:rage infinite
+/attribute Dev minecraft:generic.attack_damage base get
+/effect give Dev revengeance:adrenaline infinite
+/attribute Dev minecraft:generic.attack_damage base get
+/attribute Dev terra_entity:player.summon_damage
+/attribute Dev terra_entity:player.summon_damage get
+/effect clear
+/effect give Dev revengeance:rage
+/effect give Dev revengeance:rage infinite
+/attribute Dev terra_entity:player.summon_damage get
+/attribute Dev minecraft:generic.attack_damage get
+/effect clear
+/attribute Dev minecraft:generic.attack_damage get
+/attribute Dev minecraft:generic.attack_damage modifier remove
+/attribute Dev minecraft:generic.attack_damage modifier remove effect.adrenaline.melee
+/attribute Dev minecraft:generic.attack_damage get
+/attribute Dev terra_curio:generic.magic_damage get
+/effect give Dev revengeance:rage 30
+/attribute Dev terra_curio:generic.magic_damage get
