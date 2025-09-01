@@ -1,0 +1,16 @@
+#How often (in ticks) to scan for hostile entities for rage charging. Lower = more accurate but worse performance. (1-20)
+# Default: 3
+# Range: 1 ~ 20
+rageUpdateInterval = 3
+#How long (in ticks) to cache hostile entity scan results. Should be >= rageUpdateInterval for best performance.
+# Default: 5
+# Range: 1 ~ 40
+rageCacheDuration = 5
+#Maximum distance to detect hostile entities for rage charging (8-64 blocks)
+# Default: 32.0
+# Range: 8.0 ~ 64.0
+rageDetectionRadius = 32.0
+#Distance for maximum rage charging speed (4-32 blocks, should be < rageDetectionRadius)
+# Default: 8.0
+# Range: 4.0 ~ 32.0
+rageInnerRadius = 8.0

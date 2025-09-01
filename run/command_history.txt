@@ -1,20 +1,17 @@
-/summon wither
-/kill @e[type=wither]
-/summon wither
-/kill @e[type=!#c:bosses]
-/kill @e[type=#c:bosses]
-/summon wither
-/data get entity @s
-/attribute @s revengeance:adrenaline_level base get
-/attribute @s revengeance:adrenaline_level base set 1
-/kill @e[type=wither]
-/attribute @s revengeance:adrenaline_level base get
-/summon wither
+/give Dev testmod:testitem
+/setblock ~ ~ ~ minecraft:stone
 /summon minecraft:zombie
-/summon wither
-/attribute @s revengeance:adrenaline_level base set 111111
-/effect clear @s minecraft:resistance
-/attribute @s revengeance:adrenaline_level base get
-/attribute @s revengeance:adrenaline_level base set 10000
-/attribute @s revengeance:adrenaline_level base set 111111
-/attribute @s revengeance:adrenaline_level base set 10000
+/playsound revengeance:rage_end
+/attribute Dev revengeance:rage_level base set
+/attribute Dev revengeance:rage_level base get
+/attribute Dev revengeance:rage_level base set 99
+/damage Dev 1
+/damage Dev 2
+/damage Dev 3
+/attribute Dev minecraft:generic.max_health base set 40
+/damage Dev 1
+/damage Dev 2
+/damage Dev 3
+/damage Dev 4
+/attribute Dev revengeance:adrenaline_level base set 9999
+/damage Dev 0.1
