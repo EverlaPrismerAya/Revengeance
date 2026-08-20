@@ -1,14 +1,12 @@
 package com.jsdtqhj.revengeance.procedures;
 
+import com.jsdtqhj.revengeance.Config;
 import com.jsdtqhj.revengeance.attributes.RevengeanceModAttributes;
 import com.jsdtqhj.revengeance.potion.RevengeanceModMobEffects;
 import com.jsdtqhj.revengeance.sounds.RevengeanceModSounds;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
@@ -21,7 +19,6 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.minecraft.core.registries.BuiltInRegistries;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,14 +31,8 @@ public class AdrenalineSystemHandler {
     private static final double MAX_ADRENALINE = 10000.0;
     private static final double CHARGE_RATE = MAX_ADRENALINE / (30.0 * 20.0); // 30秒充满，每tick充能速度
     private static final double DECAY_RATE = MAX_ADRENALINE / 20.0; // 1秒损失完，每tick损失速度
-    private static final double BOSS_DETECTION_RADIUS = 128.0; // boss检测范围128格
+    private static final double ADRENALINE_DETECTION_RADIUS = 128.0; // 肾上腺素检测范围128格
     private static final int ADRENALINE_EFFECT_DURATION = 100; // 肾上腺素效果持续时间100刻
-    
-    // boss标签
-    private static final TagKey<EntityType<?>> FORGE_BOSSES = TagKey.create(
-        BuiltInRegistries.ENTITY_TYPE.key(),
-        ResourceLocation.parse("c:bosses")
-    );
     
     // 存储玩家受伤暂停充能的时间
     private static final Map<UUID, Long> hurtPauseTime = new HashMap<>();
@@ -73,7 +64,7 @@ public class AdrenalineSystemHandler {
 
     /**
      * 处理肾上腺素充能逻辑
-     * 当128格内有boss实体时开始充能
+     * 当128格内有最大生命值达到阈值的生物时开始充能
      */
     public static void handleAdrenalineCharging(Player player) {
         if (!player.getAttributes().hasAttribute(RevengeanceModAttributes.ADRENALINE_LEVEL)) {
@@ -98,8 +89,8 @@ public class AdrenalineSystemHandler {
             }
         }
 
-        // 检查是否有boss在128格范围内
-        if (hasBossNearby(player)) {
+        // 检查是否有达到生命值阈值的生物在128格范围内
+        if (hasHighHealthEntityNearby(player)) {
             double currentAdrenaline = player.getAttribute(RevengeanceModAttributes.ADRENALINE_LEVEL).getValue();
             
             if (currentAdrenaline < MAX_ADRENALINE) {
@@ -115,7 +106,7 @@ public class AdrenalineSystemHandler {
 
     /**
      * 处理肾上腺素自然损失
-     * 当没有boss在附近时持续损失
+     * 当没有达到生命值阈值的生物在附近时持续损失
      */
     public static void handleAdrenalineDecay(Player player) {
         if (!player.getAttributes().hasAttribute(RevengeanceModAttributes.ADRENALINE_LEVEL)) {
@@ -127,8 +118,8 @@ public class AdrenalineSystemHandler {
             return;
         }
 
-        // 如果有boss在附近，不损失
-        if (hasBossNearby(player)) {
+        // 如果有达到生命值阈值的生物在附近，不损失
+        if (hasHighHealthEntityNearby(player)) {
             return;
         }
 
@@ -176,8 +167,8 @@ public class AdrenalineSystemHandler {
 
         double currentAdrenaline = player.getAttribute(RevengeanceModAttributes.ADRENALINE_LEVEL).getValue();
         
-        // 如果肾上腺素已满且有boss在附近
-        if (currentAdrenaline >= MAX_ADRENALINE && hasBossNearby(player)) {
+        // 如果肾上腺素已满且有达到生命值阈值的生物在附近
+        if (currentAdrenaline >= MAX_ADRENALINE && hasHighHealthEntityNearby(player)) {
             giveResistanceEffect(player);
         }
     }
@@ -291,17 +282,17 @@ public class AdrenalineSystemHandler {
     }
 
     /**
-     * 检查128格范围内是否有boss
+     * 检查128格范围内是否有最大生命值达到阈值的生物
      */
-    private static boolean hasBossNearby(Player player) {
+    private static boolean hasHighHealthEntityNearby(Player player) {
         Vec3 playerPos = player.position();
         AABB searchArea = new AABB(
-            playerPos.x - BOSS_DETECTION_RADIUS, playerPos.y - BOSS_DETECTION_RADIUS, playerPos.z - BOSS_DETECTION_RADIUS,
-            playerPos.x + BOSS_DETECTION_RADIUS, playerPos.y + BOSS_DETECTION_RADIUS, playerPos.z + BOSS_DETECTION_RADIUS
+            playerPos.x - ADRENALINE_DETECTION_RADIUS, playerPos.y - ADRENALINE_DETECTION_RADIUS, playerPos.z - ADRENALINE_DETECTION_RADIUS,
+            playerPos.x + ADRENALINE_DETECTION_RADIUS, playerPos.y + ADRENALINE_DETECTION_RADIUS, playerPos.z + ADRENALINE_DETECTION_RADIUS
         );
 
         for (LivingEntity entity : player.level().getEntitiesOfClass(LivingEntity.class, searchArea)) {
-            if (entity != player && entity.getType().is(FORGE_BOSSES)) {
+            if (entity != player && entity.getMaxHealth() >= Config.adrenalineHealthThreshold) {
                 return true;
             }
         }

@@ -36,6 +36,10 @@ public class Config
             .comment("Distance for maximum rage charging speed (4-32 blocks, should be < rageDetectionRadius)")
             .defineInRange("rageInnerRadius", 8.0, 4.0, 32.0);
 
+    private static final ModConfigSpec.DoubleValue ADRENALINE_HEALTH_THRESHOLD = BUILDER
+            .comment("Minimum maximum health of a nearby living entity to trigger adrenaline charging")
+            .defineInRange("adrenalineHealthThreshold", 200.0, 1.0, 1000000.0);
+
     static final ModConfigSpec SPEC = BUILDER.build();
 
     // Performance settings
@@ -43,6 +47,7 @@ public class Config
     public static int rageCacheDuration; 
     public static double rageDetectionRadius;
     public static double rageInnerRadius;
+    public static double adrenalineHealthThreshold;
 
     private static boolean validateItemName(final Object obj)
     {
@@ -55,5 +60,6 @@ public class Config
         rageCacheDuration = RAGE_CACHE_DURATION.get();
         rageDetectionRadius = RAGE_DETECTION_RADIUS.get();
         rageInnerRadius = RAGE_INNER_RADIUS.get();
+        adrenalineHealthThreshold = ADRENALINE_HEALTH_THRESHOLD.get();
     }
 }
